@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Nos projets récents ({{ count }})</h2>
+
+{% for project in projects %}
+<div class="project">
+    <h3><a href="{% url 'project_detail' project.id %}">{{ project.title }}</a></h3>
+    <p><strong>Créé le:</strong> {{ project.created_at|date:"d/m/Y" }}</p>
+    <p>{{ project.description_excerpt }}</p>
+</div>
+{% empty %}
+<p>Aucun projet récent pour le moment.</p>
+{% endfor %}
+{% endblock %}

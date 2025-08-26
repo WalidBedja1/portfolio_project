@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ project.title }}</h2>
+<p><strong>Créé le:</strong> {{ project.created_at|date:"d/m/Y à H:i" }}</p>
+<p>{{ project.description }}</p>
+
+<a href="{% url 'project_list' %}">← Retour à la liste des projets</a>
+{% endblock %}
